@@ -1,0 +1,49 @@
+
+<div class="ui input icon input">
+  <input type="text" placeholder="Search..." id="inputName" [(ngModel)]="inputName" (keyup)="FilterByName()">
+   <i class="search icon"></i>
+  <!-- <input class="ui button" type="button"  value="Apply"/> -->
+</div>
+<div class="" style="margin-top:25px">
+
+</div>
+
+  <div *ngFor="let photo of photos">
+   <div class="row">
+     <img src='http://localhost:8080/uploads/{{photo.ImageName}}' class='ui image big centered' (click)="onSelect(photo)" style="cursor: pointer" height="250px" width="450">
+
+      <h1>{{photo.description}}</h1>
+  </div>
+    <div class="row">
+      <div class="col-lg-6 text-left">
+          <div class="product-price">
+              <span>{{photo.title}}</span><br/> {{photo.likes}} &nbsp; Likes
+      </div>
+      <div class="col-lg-6 text-right">
+          <!-- <button type="button" class="btn btn-lg btn-success btn-lg">Find Agen</button> -->
+      </div>
+    </div>
+  </div>
+</div>
+
+<div>
+  <div class="btn-group">
+       <label style="margin-top:10px">Page {{currentIndex}}/{{pageNumber}}</label>
+    </div>
+  <div class="ui pagination menu">
+  <a class="icon item" [ngClass]="{'disabled': (currentIndex == 1 || pageNumber == 0)}" (click)="prevPage()" >
+    <i class="left arrow icon"></i>
+  </a>
+  <span *ngFor="let page of pagesIndex"  >
+     <a (click)="setPage(page)" [ngClass]="{'active': (currentIndex == page)}" class="item" >{{page}}</a>
+  </span>
+
+  <a [ngClass]="{'disabled': (currentIndex == pageNumber || pageNumber == 0)}" class="icon item" (click)="nextPage()">
+    <i class="right arrow icon"></i>
+  </a>
+</div>
+</div>
+
+<!-- <div class="btn-group">
+     <label style="margin-top:10px">Page {{currentIndex}}/{{pageNumber}}</label>
+  </div> -->
