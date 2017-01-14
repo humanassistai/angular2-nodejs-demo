@@ -1,0 +1,3 @@
+[submodule "angular2-nodejs-demo"]
+	path = angular2-nodejs-demo
+	url = https://github.com/humanassistai/angular2-nodejs-demo
