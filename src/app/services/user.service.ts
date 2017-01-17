@@ -16,13 +16,13 @@ export class UserService {
   }
 
   getUserByName(username: string) {
-    let tokenUrl = "http://localhost:8082/api/username";
+    let tokenUrl = "http://192.99.172.172:9002/api/username";
     let headers = new Headers({'Authorization': JSON.parse(window.localStorage.getItem("token")).token});
     return this.http.post(tokenUrl, username, {headers: headers});
   }
 
   updateUser(user: User) {
-    let tokenUrl1 = "http://localhost:8082/api/user/update";
+    let tokenUrl1 = "http://192.99.172.172:9002/api/user/update";
     let headers1 = new Headers({'Content-Type': 'application/json', 'Authorization': 'Bearer '+localStorage.getItem("token")});
     return this.http.post(tokenUrl1, JSON.stringify(user), {headers: headers1});
   }

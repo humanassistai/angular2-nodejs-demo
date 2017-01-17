@@ -9,7 +9,7 @@ export class UploadPhotoService {
     }
 
     upload() {
-        this.makeFileRequest("http://localhost:8082/api/photo/upload", [], this.filesToUpload).then((result) => {
+        this.makeFileRequest("http://192.99.172.172:9002/api/photo/upload", [], this.filesToUpload).then((result) => {
             console.log(result);
         }, (error) => {
             console.error(error);

@@ -9,7 +9,7 @@
 
   <div *ngFor="let photo of photos">
    <div class="row">
-     <img src='http://localhost:8080/uploads/{{photo.ImageName}}' class='ui image big centered' (click)="onSelect(photo)" style="cursor: pointer" height="250px" width="450">
+     <img src='http://192.99.172.172:9000/uploads/{{photo.ImageName}}' class='ui image big centered' (click)="onSelect(photo)" style="cursor: pointer" height="250px" width="450">
 
       <h1>{{photo.description}}</h1>
   </div>

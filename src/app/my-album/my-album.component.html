@@ -4,7 +4,7 @@
        <div class="ui horizontal segments" >
          <span *ngFor="let photo of photos" >
            <div class="ui segment">
-             <img src='http://localhost:8080/uploads/{{photo.ImageName}}' class='ui medium image' (click)="onSelect(photo)" style="cursor: pointer">
+             <img src='http://192.99.172.172:9000/uploads/{{photo.ImageName}}' class='ui medium image' (click)="onSelect(photo)" style="cursor: pointer">
              <div class="ui grid">
                  <div class="twelve wide column left aligned">
                      <strong>{{photo.title}}</strong><br/>
