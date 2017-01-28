@@ -69,7 +69,7 @@ apiRoutes.post('/authenticate', function(req, res) {
 		        if (err) { return res.json({ success: false, message: 'Authentication failed. ' });}
 
 		        // Password did not match
-		        if (!isMatch) { return res.json({ success: false, message: 'Authentication failed. Wrong password.' }); }
+		        if (!isMatch) { return  res.send(401,{ success: false, message: 'Authentication failed. Wrong password.' }); }
 		        // console.log("user", user);
 		        // Success
 
@@ -93,7 +93,7 @@ apiRoutes.post('/authenticate', function(req, res) {
 			// }
 
 		}else{
-				res.json({ success: false, message: 'Authentication failed. User not founds.' });
+				 res.send(401,{ success: false, message: 'Authentication failed. User not founds.' });
 
 		}
 

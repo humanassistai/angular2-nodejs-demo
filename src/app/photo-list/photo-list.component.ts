@@ -67,8 +67,13 @@ export class PhotoListComponent implements OnInit {
          console.log("this.pageNumber :  "+this.pageNumber);
    }
    onSelect(photo:Photo) {
-    this.selectedPhoto = photo;
-    this.router.navigate(['/image-detail', this.selectedPhoto.photoId]);
+    let token = window.localStorage.getItem("token");
+    if(token){
+      this.selectedPhoto = photo;
+      this.router.navigate(['/image-detail', this.selectedPhoto.photoId]);
+    }else{
+      alert('you must login to see this');
+    }
   }
   FilterByName(){
     this.filteredPhotos = [];
@@ -82,7 +87,10 @@ export class PhotoListComponent implements OnInit {
               console.log("elemnt",element.photoName.toUpperCase(),this.inputName.toUpperCase(), element.photoName.toUpperCase().indexOf(this.inputName.toUpperCase()) );
                 if(element.photoName.toUpperCase().indexOf(this.inputName.toUpperCase())>=0 || element.title.toUpperCase().indexOf(this.inputName.toUpperCase())>=0 ){
                   this.filteredPhotos.push(element);
-                     this.init();
+                  this.init();
+               }else{
+                 this.filteredPhotos =[];
+                 this.init();
                }
             })
          },

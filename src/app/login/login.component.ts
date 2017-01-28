@@ -32,7 +32,10 @@ export class LoginComponent implements OnInit {
                   error => console.log(error)
                 );
               },
-      error => console.log(error)
+      error => {
+        alert(JSON.parse(error._body).message);
+        console.log(error._body);
+        }
     );
 
   }
